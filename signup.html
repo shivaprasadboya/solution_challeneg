@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- For Icons -->
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
+                <path
+                    clip-rule="evenodd"
+                    d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                />
+            </svg>
+            <!-- <p class="font-bold text-inherit">ACME</p> -->
+        </div>
+
+        <div class="navbar-content">
+            <ul class="navbar-items">
+                <li><a href="./index.html">Home</a></li>
+                <li class="active"><a href="#">Products</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            
+
+            <div class="navbar-right">
+                <a href="./login_index.html" class="login">Login</a>
+                <a href="#" class="signup-button">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <h2 class="title">Welcome to Aceternity</h2>
+        <p class="subtitle">Login to aceternity if you can because we don&apos;t have a login flow yet</p>
+        <form id="signup-form">
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="firstname">First name</label>
+                    <input id="firstname" placeholder="Tyler" type="text" />
+                </div>
+                <div class="input-group">
+                    <label for="lastname">Last name</label>
+                    <input id="lastname" placeholder="Durden" type="text" />
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input id="email" placeholder="projectmayhem@fc.com" type="email" />
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input id="password" placeholder="••••••••" type="password" />
+            </div>
+            <div class="input-group">
+                <label for="twitterpassword">Your twitter password</label>
+                <input id="twitterpassword" placeholder="••••••••" type="password" />
+            </div>
+
+            <button class="submit-btn" type="submit">
+                Sign up &rarr;
+                <span class="bottom-gradient"></span>
+            </button>
+
+            <div class="divider"></div>
+
+            <div class="social-buttons">
+                <button class="social-btn github">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                    <span class="bottom-gradient"></span>
+                </button>
+                <button class="social-btn google">
+                    <i class="fab fa-google"></i>
+                    Google
+                    <span class="bottom-gradient"></span>
+                </button>
+                <button class="social-btn onlyfans">
+                    <i class="fab fa-onlyfans"></i>
+                    OnlyFans
+                    <span class="bottom-gradient"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

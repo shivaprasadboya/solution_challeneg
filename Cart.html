@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
+        <path clip-rule="evenodd" d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z" fill="currentColor" fill-rule="evenodd"/>
+      </svg>
+      <p class="navbar-title">ACME</p>
+    </div>
+    <ul class="navbar-content">
+      <li><a href="./index.html" class="navbar-item">Home</a></li>
+      <li><a href="./Products.html" class="navbar-item">Products</a></li>
+      <li><a href="./Cart.html" class="navbar-item active">Cart</a></li>
+    </ul>
+    <div class="navbar-search">
+      <input type="text" class="search-input" placeholder="Search..." aria-label="Search"/>
+      <button class="search-button"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="navbar-actions">
+      <a href="./login_index.html" class="navbar-login">Login</a>
+      <a href="#" class="navbar-signup">Sign Up</a>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Your Cart</h1>
+    <div id="cart-items" class="row g-4">
+      <!-- Cart items will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const cartItems = document.getElementById("cart-items");
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="text-center">Your cart is empty!</p>';
+      } else {
+        cartItems.innerHTML = '';
+        cart.forEach((item, index) => {
+          const card = document.createElement("div");
+          card.className = "col-md-4";
+          card.innerHTML = `
+            <div class="product-card">
+              <img src="${item.image}" alt="${item.name}" class="img-fluid">
+              <div class="product-details">
+                <h5>${item.name}</h5>
+                <p>${item.description}</p>
+                <div class="price">${item.price}</div>
+                <button class="btn btn-danger remove-item" onclick="removeItem(${index})">Remove</button>
+              </div>
+            </div>
+          `;
+          cartItems.appendChild(card);
+        });
+      }
+    };
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      // Remove the item from the cart
+      cart.splice(index, 1);
+      // Save the updated cart back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Reload the cart view
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>
